@@ -3,7 +3,7 @@ moodle-block_slideshow
 
 #Slideshow block 
 
-###This block creates a slideshow that will appear in the head of a course page or front page.
+###This block creates a slideshow that will appear in the heading section of a course page or front page.
 
 It works with all core moodle themes except "Clean" due to an issue with the theme's ability to load Jquery correctly (MDL-41516)
 
