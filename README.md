@@ -7,6 +7,8 @@ moodle-block_slideshow
 
 It works with all core moodle themes except "Clean" due to an issue with the theme's ability to load Jquery correctly (MDL-41516)
 
+**Update** With the release of Moodle 2.5.2, MDL-41516 has been fixed and this block will work with Clean theme.
+
 **Tested with:**
 * Afterburner
 * Anomaly
