@@ -121,6 +121,9 @@
 			
 			$mform->addElement('advcheckbox', 'config_transparent', get_string('transparent', 'block_slideshow'), get_string('transparentlabel', 'block_slideshow'), array('group' => 1), array(0, 1));
 			$mform->addHelpButton('config_transparent', 'transparent', 'block_slideshow');
+
+			$mform->addElement('advcheckbox', 'config_normalblock', get_string('normalblock', 'block_slideshow'), get_string('normalblocklabel', 'block_slideshow'), array('group' => 1), array(0, 1));
+			$mform->addHelpButton('config_normalblock', 'normalblock', 'block_slideshow');
 			
 			$mform->addElement('filemanager', 'config_image', get_string('imagefile', 'block_slideshow'), null,
 							array('subdirs' => 0, 'maxbytes' => $maxsize, 'maxfiles' => $maximages,

@@ -50,6 +50,7 @@ class block_slideshow extends block_base {
 		$this->slidespeed = '1000';
 		$this->background = '000000';
 		$this->transparent = '0';
+		$this->normalblock = '0';
 		$this->text = 'default text (mine)';
 	}
 	
@@ -61,6 +62,7 @@ class block_slideshow extends block_base {
 		$this->slidespeed = isset($this->config->slidespeed) ? format_string($this->config->slidespeed) : '1000';
 		$this->background = isset($this->config->background) ? $this->config->background : '#000000';
 		$this->transparent = isset($this->config->transparent) ? $this->config->transparent : '0';
+		$this->normalblock = isset($this->config->normalblock) ? $this->config->normalblock : '0';
    		$this->text = isset($this->config->text) ? format_string($this->config->text) : 'default';
 	}
 	
@@ -98,6 +100,12 @@ class block_slideshow extends block_base {
 	    	$this->content->transparent = $this->config->transparent;
 		} else {
 			$this->content->transparent = '';
+		}
+		
+		if (!empty($this->config->normalblock)) {
+	    	$this->content->normalblock = $this->config->normalblock;
+		} else {
+			$this->content->normalblock = '';
 		}
 		
 		if (!empty($this->config->transition)) {
@@ -178,9 +186,15 @@ class block_slideshow extends block_base {
 							width: '100%',
 							timeout: " . $this->content->slidedelay . ",
 							fit: 1
-						}); 
-						$('#inst" . $this->instance->id . "') .appendTo('#" . $node . "');
+						}); ";
+						
+			if(!$this->content->normalblock) {			
+				$script .=  "$('#inst" . $this->instance->id . "') .appendTo('#" . $node . "');
 						$('#page-header').css('height', 'auto');
+$('.block.block_slideshow').css({'margin':'0','border':'0','width':'100%','clear':'both','border-radius':'0','padding':'0','background':'" . $ssbackground . "'});
+$('.block.block_slideshow .corner-box').css({'margin':'0','border':'0','width':'100%','clear':'both','border-radius':'0','padding':'0','background':'" . $ssbackground . "'});";						
+			}			
+			$script .= "
 						$('#page-slideshow').width($('#inst" . $this->instance->id . "').width());
 						$('#page-slideshow').css('background', '" . $ssbackground . "');
 						$('.block.block_slideshow .content #page-slideshow').css('height', '" . $this->content->height . "px');
@@ -190,7 +204,7 @@ class block_slideshow extends block_base {
 				</script>
 			";
 			
-			$this->content->text .= $script; // . "<h1>" . $CFG->theme . "</h1>";
+			$this->content->text .= $script; // . "<h1>Normal Block:" . $this->content->normalblock . ";</h1>";
 			
 			
 

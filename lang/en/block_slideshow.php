@@ -17,6 +17,9 @@ $string['transition_help'] = 'For examples of these transitions, <a href="http:/
 $string['transparent'] = 'Transparent';
 $string['transparentlabel'] = 'Check this to have the slideshow background be transparent';
 $string['transparent_help'] = 'If this is checked, the background color setting will have no effect';
+$string['normalblock'] = 'Display in Side';
+$string['normalblocklabel'] = 'Check this to have the slideshow display in the side columns';
+$string['normalblock_help'] = 'If this is checked, the slideshow will behave as a normal block: it will be displayed in the side columns and be able to be docked.';
 $string['slidedelay'] = 'Display time';
 $string['slidedelay_help'] = 'This is the time a slide is displayed.  However, if this value is set to a value lower than the transition speed, the transition speed will be added to it.  For example, if the Display time is 1 second and the Transition speed is 3 seconds, the slide will show for 4 seconds before it starts the transition.';
 $string['slidespeed'] = 'Transitions Speed';

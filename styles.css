@@ -1,10 +1,8 @@
-.block.block_slideshow, .block.block_slideshow .corner-box  { margin:0 !important; border: 0 !important; width: 100% !important;; clear:both; border-radius: 0 !important; padding:0 !important;}
 #newheader {height: auto !important;} /* Fix for Overlay theme*/
 .block.block_slideshow .content{padding:0 !important; margin: 0 !important; border: 0 !important; border-radius: 0 !important;}
 .block.block_slideshow .content .no-overflow {padding: 0;}
-.block.block_slideshow .content #page-slideshow { margin: 0 auto; padding: 0; }
-.block.block_slideshow .content #page-slideshow .slide { margin: 0; padding: 0 }
-.block.block_slideshow .content #page-slideshow, .block.block_slideshow .content #page-slideshow .slide { width: 100% !important;; }
+.block.block_slideshow .content #page-slideshow { margin: 0 auto; padding: 0; width: 100% !important;}
+.block.block_slideshow .content #page-slideshow .slide { margin: 0; padding: 0; width: 100% !important; }
 .block.block_slideshow .content #page-slideshow .slide img { padding: 0px; border: 0px solid #ccc; margin: auto; display: block }
 
 /*Styles for colorpicker*/

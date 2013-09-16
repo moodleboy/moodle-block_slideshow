@@ -46,3 +46,4 @@ Download, extract, and upload the "Slideshow" folder into moodle/blocks
 * Background color - Clicking in this textbox triggers a colorpicker
 * Transparent - Clicking this overrides the background color setting and makes the background transparent
 * Image selector - Will only accept gif, jpg, or png files 
+* Use as normal Dock - Will allow the slideshow to be displayed in the side columns or where ever a block can be displayed.
