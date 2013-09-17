@@ -47,66 +47,102 @@
 			$mform->addHelpButton('config_height', 'blockheight', 'block_slideshow');
 			$mform->setType('config_height', PARAM_RAW);
 			
-			$transitions = array(	'blindX'=>'blindX', 
-									'blindY'=>'blindY', 
-									'blindZ'=>'blindZ', 
-									'cover'=>'cover', 
-									'curtainX'=>'curtainX', 
-									'curtainY'=>'curtainY', 
-									'fade'=>'fade', 
-									'fadeZoom'=>'fadeZoom', 
-									'growX'=>'growX', 
-									'growY'=>'growY', 
-									'none'=>'none', 
-									'scrollUp'=>'scrollUp', 
-									'scrollDown'=>'scrollDown', 
-									'scrollLeft'=>'scrollLeft', 
-									'scrollRight'=>'scrollRight', 
-									'scrollHorz'=>'scrollHorz', 
-									'scrollVert'=>'scrollVert', 
-									'shuffle'=>'shuffle', 
-									'slideX'=>'slideX', 
-									'slideY'=>'slideY', 
-									'toss'=>'toss', 
-									'turnUp'=>'turnUp', 
-									'turnDown'=>'turnDown', 
-									'turnLeft'=>'turnLeft', 
-									'turnRight'=>'turnRight', 
-									'uncover'=>'uncover', 
-									'wipe'=>'wipe', 
-									'zoom'=>'zoom', 
+			$blindX = format_string(get_string('blindX', 'block_slideshow')); 
+			$blindY = format_string(get_string('blindY', 'block_slideshow')); 
+			$blindZ = format_string(get_string('blindZ', 'block_slideshow')); 
+			$cover = format_string(get_string('cover', 'block_slideshow')); 
+			$curtainX = format_string(get_string('curtainX', 'block_slideshow')); 
+			$curtainY = format_string(get_string('curtainY', 'block_slideshow')); 
+			$fade = format_string(get_string('fade', 'block_slideshow')); 
+			$fadeZoom = format_string(get_string('fadeZoom', 'block_slideshow')); 
+			$growX = format_string(get_string('growX', 'block_slideshow')); 
+			$growY = format_string(get_string('growY', 'block_slideshow')); 
+			$none = format_string(get_string('none', 'block_slideshow')); 
+			$scrollUp = format_string(get_string('scrollUp', 'block_slideshow')); 
+			$scrollDown = format_string(get_string('scrollDown', 'block_slideshow')); 
+			$scrollLeft = format_string(get_string('scrollLeft', 'block_slideshow')); 
+			$scrollRight = format_string(get_string('scrollRight', 'block_slideshow')); 
+			$scrollHorz = format_string(get_string('scrollHorz', 'block_slideshow')); 
+			$scrollVert = format_string(get_string('scrollVert', 'block_slideshow')); 
+			$shuffle = format_string(get_string('shuffle', 'block_slideshow')); 
+			$slideX = format_string(get_string('slideX', 'block_slideshow')); 
+			$slideY = format_string(get_string('slideY', 'block_slideshow')); 
+			$toss = format_string(get_string('toss', 'block_slideshow')); 
+			$turnUp = format_string(get_string('turnUp', 'block_slideshow')); 
+			$turnDown = format_string(get_string('turnDown', 'block_slideshow')); 
+			$turnLeft = format_string(get_string('turnLeft', 'block_slideshow')); 
+			$turnRight = format_string(get_string('turnRight', 'block_slideshow')); 
+			$uncover = format_string(get_string('uncover', 'block_slideshow')); 
+			$wipe = format_string(get_string('wipe', 'block_slideshow')); 
+			$zoom = format_string(get_string('zoom', 'block_slideshow')); 
+			
+			$transitions = array(	
+				'blindX'=>$blindX, 
+				'blindY'=>$blindY, 
+				'blindZ'=>$blindZ, 
+				'cover'=>$cover, 
+				'curtainX'=>$curtainX, 
+				'curtainY'=>$curtainY, 
+				'fade'=>$fade, 
+				'fadeZoom'=>$fadeZoom, 
+				'growX'=>$growX, 
+				'growY'=>$growY, 
+				'none'=>$none, 
+				'scrollUp'=>$scrollUp, 
+				'scrollDown'=>$scrollDown, 
+				'scrollLeft'=>$scrollLeft, 
+				'scrollRight'=>$scrollRight, 
+				'scrollHorz'=>$scrollHorz, 
+				'scrollVert'=>$scrollVert, 
+				'shuffle'=>$shuffle, 
+				'slideX'=>$slideX, 
+				'slideY'=>$slideY, 
+				'toss'=>$toss, 
+				'turnUp'=>$turnUp, 
+				'turnDown'=>$turnDown, 
+				'turnLeft'=>$turnLeft, 
+				'turnRight'=>$turnRight, 
+				'uncover'=>$uncover, 
+				'wipe'=>$wipe, 
+				'zoom'=>$zoom
 			);
 			$mform->addElement('select', 'config_transition', get_string('transition', 'block_slideshow'), $transitions);
 			$mform->setDefault('config_transition', 'fade');
 			$mform->addHelpButton('config_transition', 'transition', 'block_slideshow');
 			$mform->setType('config_transition', PARAM_RAW);
-
-			$delay = array(	1000=>'1 Second', 
-							2000=>'2 Seconds', 
-							3000=>'3 Seconds', 
-							4000=>'4 Seconds', 
-							5000=>'5 Seconds', 
-							6000=>'6 Seconds', 
-							7000=>'7 Seconds', 
-							8000=>'8 Seconds', 
-							9000=>'9 Seconds', 
-							10000=>'10 Seconds', 
-							11000=>'11 Seconds', 
-							12000=>'12 Seconds'
+			
+			$second = format_string(get_string('second', 'block_slideshow'));
+			$seconds = format_string(get_string('seconds', 'block_slideshow'));
+			$quarter = format_string(get_string('quarter', 'block_slideshow'));
+			$tenth = format_string(get_string('tenth', 'block_slideshow'));
+			$half = format_string(get_string('half', 'block_slideshow'));
+			
+			$delay = array(	1000=>'1 ' . $second, 
+							2000=>'2 ' . $seconds, 
+							3000=>'3 ' . $seconds, 
+							4000=>'4 ' . $seconds, 
+							5000=>'5 ' . $seconds, 
+							6000=>'6 ' . $seconds, 
+							7000=>'7 ' . $seconds, 
+							8000=>'8 ' . $seconds, 
+							9000=>'9 ' . $seconds, 
+							10000=>'10 ' . $seconds, 
+							11000=>'11 ' . $seconds, 
+							12000=>'12 ' . $seconds
 			);
 			$mform->addElement('select', 'config_slidedelay', get_string('slidedelay', 'block_slideshow'), $delay);
 			$mform->setDefault('config_slidedelay', '4000');
 			$mform->addHelpButton('config_slidedelay', 'slidedelay', 'block_slideshow');
 			$mform->setType('config_slidedelay', PARAM_RAW);
 
-			$tdelay = array(	100=>'Tenth second',
-							250=>'Quarter second',
-							500=>'Half second',
-							1000=>'1 Second', 
-							2000=>'2 Seconds', 
-							3000=>'3 Seconds', 
-							4000=>'4 Seconds', 
-							5000=>'5 Seconds'
+			$tdelay = array(	100=>$tenth,
+							250=>$quarter,
+							500=>$half,
+							1000=>'1 ' . $second, 
+							2000=>'2 ' . $seconds, 
+							3000=>'3 ' . $seconds, 
+							4000=>'4 ' . $seconds, 
+							5000=>'5 ' . $seconds
 			);
 
 			$mform->addElement('select', 'config_slidespeed', get_string('slidespeed', 'block_slideshow'), $tdelay);
