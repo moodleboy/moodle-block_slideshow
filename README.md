@@ -5,31 +5,12 @@ moodle-block_slideshow
 
 ###This block creates a slideshow that will appear in the heading section of a course page or front page.
 
-It works with all core moodle themes except "Clean" due to an issue with the theme's ability to load Jquery correctly (MDL-41516)
+A fork of [moodleboy/moodle-block_slideshow](https://github.com/moodleboy/moodle-block_slideshow) with minor fixes to get it running on Moodle 3.0. The new javascript library which enables responsive slides unfortunately supports fewer slide transitions (none, fade, fade out and horizontal scroll).
 
-**Update** With the release of Moodle 2.5.2, MDL-41516 has been fixed and this block will work with Clean theme.
-
-**Tested with:**
-* Afterburner
-* Anomaly
-* Arialist
-* Binarius
-* Boxxie
-* Brick
-* Formal White
-* FormFactor
-* Fusion
-* Leatherbound
-* Magazine
-* Nimble
-* Nonzero
-* Overlay
-* Serenity
-* Sky High
-* Splash
-* Standard
-
-(it may work with some third party themes, but most likely not with any bootstrap based theme due to [MDL-41516](https://tracker.moodle.org/browse/MDL-41516).  If you have a third party theme and it doesn't work, send me a link to your site and I will update the code.)
+** Changelog 0.6.0
+* Update cycle.js with cycle2.js to support responsive themes
+* Replace dropped session_get_instance() with \core\session\manager()
+* Add $plugin->component declaration in version.php which is now mandatory
 
 **Installation:**
 Download, extract, and upload the "Slideshow" folder into moodle/blocks
