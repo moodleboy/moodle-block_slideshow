@@ -29,7 +29,8 @@
  */
 
 
-$plugin->version = 2013091800; // YYYYMMDDHH (year, month, day, 24-hr time) 
-$plugin->requires = 2013040500 ; // YYYYMMDDHH (This is the release version for Moodle 2.0)
+$plugin->component = 'block_slideshow';
+$plugin->version = 2015111000; // YYYYMMDDHH (year, month, day, 24-hr time)
+$plugin->requires = 2015111600 ; // YYYYMMDDHH (This is the release version for Moodle 3.0)
 $plugin->maturity = MATURITY_BETA;
 $plugin->release = "0.5.0";
