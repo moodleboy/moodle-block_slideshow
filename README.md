@@ -7,7 +7,7 @@ moodle-block_slideshow
 
 A fork of [moodleboy/moodle-block_slideshow](https://github.com/moodleboy/moodle-block_slideshow) with minor fixes to get it running on Moodle 3.0. The new javascript library which enables responsive slides unfortunately supports fewer slide transitions (none, fade, fade out and horizontal scroll).
 
-** Changelog 0.6.0
+##Changelog 0.6.0
 * Update cycle.js with cycle2.js to support responsive themes
 * Replace dropped session_get_instance() with \core\session\manager()
 * Add $plugin->component declaration in version.php which is now mandatory
