@@ -41,70 +41,16 @@
 			$mform->addHelpButton('config_title', 'blocktitle', 'block_slideshow');
 			$mform->setType('config_title', PARAM_MULTILANG);
 
-			$mform->addElement('text', 'config_height', get_string('blockheight', 'block_slideshow'));
-			$mform->setDefault('config_height', '200');
-			$mform->addRule('config_height', get_string('blockheighterror', 'block_slideshow'), 'numeric', '/^[1-9][0-9]*$/', 'server', false, false);
-			$mform->addHelpButton('config_height', 'blockheight', 'block_slideshow');
-			$mform->setType('config_height', PARAM_RAW);
-			
-			$blindX = format_string(get_string('blindX', 'block_slideshow')); 
-			$blindY = format_string(get_string('blindY', 'block_slideshow')); 
-			$blindZ = format_string(get_string('blindZ', 'block_slideshow')); 
-			$cover = format_string(get_string('cover', 'block_slideshow')); 
-			$curtainX = format_string(get_string('curtainX', 'block_slideshow')); 
-			$curtainY = format_string(get_string('curtainY', 'block_slideshow')); 
-			$fade = format_string(get_string('fade', 'block_slideshow')); 
-			$fadeZoom = format_string(get_string('fadeZoom', 'block_slideshow')); 
-			$growX = format_string(get_string('growX', 'block_slideshow')); 
-			$growY = format_string(get_string('growY', 'block_slideshow')); 
-			$none = format_string(get_string('none', 'block_slideshow')); 
-			$scrollUp = format_string(get_string('scrollUp', 'block_slideshow')); 
-			$scrollDown = format_string(get_string('scrollDown', 'block_slideshow')); 
-			$scrollLeft = format_string(get_string('scrollLeft', 'block_slideshow')); 
-			$scrollRight = format_string(get_string('scrollRight', 'block_slideshow')); 
-			$scrollHorz = format_string(get_string('scrollHorz', 'block_slideshow')); 
-			$scrollVert = format_string(get_string('scrollVert', 'block_slideshow')); 
-			$shuffle = format_string(get_string('shuffle', 'block_slideshow')); 
-			$slideX = format_string(get_string('slideX', 'block_slideshow')); 
-			$slideY = format_string(get_string('slideY', 'block_slideshow')); 
-			$toss = format_string(get_string('toss', 'block_slideshow')); 
-			$turnUp = format_string(get_string('turnUp', 'block_slideshow')); 
-			$turnDown = format_string(get_string('turnDown', 'block_slideshow')); 
-			$turnLeft = format_string(get_string('turnLeft', 'block_slideshow')); 
-			$turnRight = format_string(get_string('turnRight', 'block_slideshow')); 
-			$uncover = format_string(get_string('uncover', 'block_slideshow')); 
-			$wipe = format_string(get_string('wipe', 'block_slideshow')); 
-			$zoom = format_string(get_string('zoom', 'block_slideshow')); 
-			
-			$transitions = array(	
-				'blindX'=>$blindX, 
-				'blindY'=>$blindY, 
-				'blindZ'=>$blindZ, 
-				'cover'=>$cover, 
-				'curtainX'=>$curtainX, 
-				'curtainY'=>$curtainY, 
-				'fade'=>$fade, 
-				'fadeZoom'=>$fadeZoom, 
-				'growX'=>$growX, 
-				'growY'=>$growY, 
-				'none'=>$none, 
-				'scrollUp'=>$scrollUp, 
-				'scrollDown'=>$scrollDown, 
-				'scrollLeft'=>$scrollLeft, 
-				'scrollRight'=>$scrollRight, 
-				'scrollHorz'=>$scrollHorz, 
-				'scrollVert'=>$scrollVert, 
-				'shuffle'=>$shuffle, 
-				'slideX'=>$slideX, 
-				'slideY'=>$slideY, 
-				'toss'=>$toss, 
-				'turnUp'=>$turnUp, 
-				'turnDown'=>$turnDown, 
-				'turnLeft'=>$turnLeft, 
-				'turnRight'=>$turnRight, 
-				'uncover'=>$uncover, 
-				'wipe'=>$wipe, 
-				'zoom'=>$zoom
+			$fade = format_string(get_string('fade', 'block_slideshow'));
+      $fadeout = format_string(get_string('fadeout', 'block_slideshow'));
+			$none = format_string(get_string('none', 'block_slideshow'));
+			$scrollHorz = format_string(get_string('scrollHorz', 'block_slideshow'));
+
+			$transitions = array(
+				'fade'=>$fade,
+        'fadeout'=>$fadeout,
+				'none'=>$none,
+				'scrollHorz'=>$scrollHorz
 			);
 			$mform->addElement('select', 'config_transition', get_string('transition', 'block_slideshow'), $transitions);
 			$mform->setDefault('config_transition', 'fade');

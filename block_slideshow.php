@@ -38,7 +38,7 @@ class block_slideshow extends block_base {
         $this->page->requires->jquery();
         $this->page->requires->jquery_plugin('ui');
         $this->page->requires->jquery_plugin('ui-css');
-        $this->page->requires->js('/blocks/slideshow/js/cycle.js');
+        $this->page->requires->js('/blocks/slideshow/js/jquery.cycle2.min.js');
         $this->page->requires->js('/blocks/slideshow/js/spectrum.js');
     }
 
@@ -53,37 +53,36 @@ class block_slideshow extends block_base {
 		$this->normalblock = '0';
 		$this->text = 'default text (mine)';
 	}
-	
-  	public function specialization() { 
-  		$this->title = isset($this->config->title) ? format_string($this->config->title) : format_string(get_string('slideshow', 'block_slideshow'));
-   		$this->height = isset($this->config->height) ? format_string($this->config->height) : '200';
+
+	public function specialization() {
+    if (!empty($this->config) && !empty($this->config->title)) {
+        $this->title = $this->config->title;
+    } else {
+        $this->title = get_string('slideshow', 'block_slideshow');
+    }
 		$this->transition = isset($this->config->transition) ? format_string($this->config->transition) : 'fade';
 		$this->slidedelay = isset($this->config->slidedelay) ? format_string($this->config->slidedelay) : '4000';
 		$this->slidespeed = isset($this->config->slidespeed) ? format_string($this->config->slidespeed) : '1000';
 		$this->background = isset($this->config->background) ? $this->config->background : '#000000';
 		$this->transparent = isset($this->config->transparent) ? $this->config->transparent : '0';
 		$this->normalblock = isset($this->config->normalblock) ? $this->config->normalblock : '0';
-   		$this->text = isset($this->config->text) ? format_string($this->config->text) : 'default';
+ 		$this->text = isset($this->config->text) ? format_string($this->config->text) : 'default';
 	}
 	
 
-	
-	public function get_content() { 
-		global $CFG, $DB;        
+
+
+	public function get_content() {
+		global $CFG, $DB;
         require_once($CFG->libdir . '/filelib.php');
-        $this->page->requires->js('/blocks/slideshow/js/cycle.js');
+        $this->page->requires->js('/blocks/slideshow/js/jquery.cycle2.min.js');
         $this->page->requires->js('/blocks/slideshow/js/spectrum.js');
 
 		if ($this->content !== null) {
     		return $this->content;
   		}
 		$this->content = new stdClass;
-		if (!empty($this->config->height)) {
-	    	$this->content->height = $this->config->height;
-		} else {
-			$this->content->height = '200';
-		}
-		
+
 		if (!empty($this->config->text)) {
 	    	$this->content->text = $this->config->text;
 		} else {
@@ -140,8 +139,8 @@ class block_slideshow extends block_base {
 			
 				$imagefile = $image->filename;
 				$url = $CFG->wwwroot . '/pluginfile.php/' . $this->context->id . '/block_slideshow/content/' . $imagefile;
-				
-				$this->content->text .= '<div class="slide"><img src="' . $url . '" /></div>' ;
+
+				$this->content->text .= '<img src="' . $url . '" class="slide" />' ;
 			}
 			
 			$this->content->text .= '</div><div style="clear:both;"> </div>';
@@ -182,28 +181,24 @@ class block_slideshow extends block_base {
     					$('#page-slideshow').cycle({
 							fx: '" . $this->content->transition . "',
 							speed: " . $this->content->slidespeed . ",
-							height: '" . $this->content->height . "',
-							width: '100%',
 							timeout: " . $this->content->slidedelay . ",
-							fit: 1
-						}); ";
-						
-			if(!$this->content->normalblock) {			
+					  }); ";
+
+			if(!$this->content->normalblock) {
 				$script .=  "$('#inst" . $this->instance->id . "') .appendTo('#" . $node . "');
 						$('#page-header').css('height', 'auto');
-$('.block.block_slideshow').css({'margin':'0','border':'0','width':'100%','clear':'both','border-radius':'0','padding':'0','background':'" . $ssbackground . "'});
-$('.block.block_slideshow .corner-box').css({'margin':'0','border':'0','width':'100%','clear':'both','border-radius':'0','padding':'0','background':'" . $ssbackground . "'});";						
-			}			
+            $('.block.block_slideshow').css({'margin':'0','border':'0','width':'100%','clear':'both','border-radius':'0','padding':'0','background':'" . $ssbackground . "'});
+            $('.block.block_slideshow .corner-box').css({'margin':'0','border':'0','width':'100%','clear':'both','border-radius':'0','padding':'0','background':'" . $ssbackground . "'});";
+			}
 			$script .= "
 						$('#page-slideshow').width($('#inst" . $this->instance->id . "').width());
 						$('#page-slideshow').css('background', '" . $ssbackground . "');
-						$('.block.block_slideshow .content #page-slideshow').css('height', '" . $this->content->height . "px');
-						$('.block.block_slideshow .content #page-slideshow img').css('height', '" . $this->content->height . "px');
+						// $('.block.block_slideshow .content #page-slideshow').css();
+						// $('.block.block_slideshow .content #page-slideshow img').css();
 					});
-					
-				</script>
-			";
-			
+
+				</script>";
+
 			$this->content->text .= $script; // . "<h1>Normal Block:" . $this->content->normalblock . ";</h1>";
 			
 			
